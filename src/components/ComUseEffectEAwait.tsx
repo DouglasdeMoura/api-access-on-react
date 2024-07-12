@@ -7,7 +7,6 @@ export function ComUseEffectEAwait() {
   const [error, setError] = useState('');
 
   const makeRequest = async () => {
-    let ignore = false;
     setIsLoading(true);
 
     try {

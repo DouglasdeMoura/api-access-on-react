@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Suspense, useState } from 'react';
 import { ComHookCustomizado } from './components/ComHookCustomizado';
 import { ComTanStackQuery } from './components/ComTanStackQuery';
 import { ComTanStackQueryESuspense } from './components/ComTanStackQueryESuspense';
@@ -24,15 +24,16 @@ export default function App() {
       <button onClick={selectVariant(7)}>Com useFetch</button>
       <button onClick={selectVariant(8)}>Com lazy state initialization</button>
       <hr />
-
-      {variant === 1 && <ComUseEffectEThen />}
-      {variant === 2 && <ComUseEffectEAwait />}
-      {variant === 3 && <ComUseSWR />}
-      {variant === 4 && <ComUseSWRESuspense />}
-      {variant === 5 && <ComTanStackQuery />}
-      {variant === 6 && <ComTanStackQueryESuspense />}
-      {variant === 7 && <ComHookCustomizado />}
-      {variant === 8 && <ComLazyStateInitialization />}
+      <Suspense fallback={<p>Carregando...</p>}>
+        {variant === 1 && <ComUseEffectEThen />}
+        {variant === 2 && <ComUseEffectEAwait />}
+        {variant === 3 && <ComUseSWR />}
+        {variant === 4 && <ComUseSWRESuspense />}
+        {variant === 5 && <ComTanStackQuery />}
+        {variant === 6 && <ComTanStackQueryESuspense />}
+        {variant === 7 && <ComHookCustomizado />}
+        {variant === 8 && <ComLazyStateInitialization />}
+      </Suspense>
     </div>
   );
 }

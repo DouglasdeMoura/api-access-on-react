@@ -1,4 +1,3 @@
-import { Suspense } from 'react';
 import useSWR from 'swr';
 import { getPosts } from '../api/posts';
 
@@ -12,7 +11,6 @@ export function ComUseSWRESuspense() {
       <h2>
         Listando posts com <code>useSWR</code> e <code>Suspense</code>
       </h2>
-      <Suspense fallback={<p>Carregando...</p>}>
         {error && <p>{error?.message}</p>}
         {posts?.map((post) => (
           <article key={post.id}>
@@ -22,7 +20,6 @@ export function ComUseSWRESuspense() {
             </header>
           </article>
         ))}
-      </Suspense>
     </div>
   );
 }

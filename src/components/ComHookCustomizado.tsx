@@ -13,7 +13,7 @@ export function ComHookCustomizado() {
       <h2>
         Listando posts com <code>fetch</code> usando <code>.then</code>
       </h2>
-      {error && <p>{error}</p>}
+      {error && <p>{error.message}</p>}
       {isLoading && <p>Carregando...</p>}
       {posts?.map((post) => (
         <article key={post.id}>
